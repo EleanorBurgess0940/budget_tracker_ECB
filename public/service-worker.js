@@ -4,7 +4,6 @@ const FILES_TO_CACHE = [
   "/index.html",
   "/index.js",
   "/styles.css",
-  "/db.js",
   "icons/icon-192x192.png",
   "icons/icon-512x512.png",
 ];
@@ -62,14 +61,8 @@ self.addEventListener("fetch", (event) => {
   if (event.request.url.startsWith(self.location.origin)) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-
         return caches.open(RUNTIME).then((cache) => {
           return fetch(event.request).then((response) => {
-            console.log("response: ", response);
-            console.log("event: ", event);
             // Put a copy of the response in the runtime cache.
             return cache.put(event.request.url, response.clone()).then(() => {
               return response;

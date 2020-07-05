@@ -6,8 +6,6 @@ For this assignment, you'll add functionality to our existing Budget Tracker app
 
 The user will be able to add expenses and deposits to their budget with or without a connection. When entering transactions offline, they should populate the total when brought back online.
 
-There is a slight problem of the restart button not working but by performing a hard restart(press the ctrl key when hitting restart) it does in fact work.
-
 ## Table of Contents
 
 1. [Link](#link)
